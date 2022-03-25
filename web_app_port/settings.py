@@ -125,3 +125,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TELEGRAM = {
+    'bot_token': '5256887795:AAG0FcC_GvW8_gaxixWCKAoJ3MUEmVxmais',
+    'channel_name': 'Squirrels_message_bot',
+}

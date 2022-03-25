@@ -3,8 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Base</title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <title>{% block title %}
+        {% endblock %}
+    </title>
 </head>
 <body>
     {% block navigation %}

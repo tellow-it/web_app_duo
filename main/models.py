@@ -1,7 +1,11 @@
 from django.db import models
 
 
-class Event(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField(blank=True)
-    start_date = models.DateTimeField(null=True)
+class FeedBack(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200)
+    message = models.TextField(max_length=1000)
+
+    def __str__(self):
+        # Будет отображаться следующее поле в панели администрирования
+        return self.email

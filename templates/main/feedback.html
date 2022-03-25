@@ -16,19 +16,23 @@
 
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
         <h2>Feedback</h2>
-
-        <form class="decor">
-            <div class="form-left-decoration"></div>
-            <div class="form-right-decoration"></div>
-            <div class="circle"></div>
-            <div class="form-inner">
-                <h3>Написать нам</h3>
-                <input type="text" placeholder="Username">
-                <input type="email" placeholder="Email">
-                <textarea placeholder="Сообщение..." rows="3"></textarea>
-                <input type="submit" value="Отправить">
-            </div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit">
         </form>
+        {#        <form action="{% url 'main:telegram_bot_send_text' %}" class="decor" method = "get">#}
+        {#            <div class="form-left-decoration"></div>#}
+        {#            <div class="form-right-decoration"></div>#}
+        {#            <div class="circle"></div>#}
+        {#            <div class="form-inner">#}
+        {#                <h3>Написать нам</h3>#}
+        {#                <input type="text" name="username" placeholder="Username" required>#}
+        {#                <input type="email" name="mail" placeholder="Email" required>#}
+        {#                <textarea placeholder="Сообщение..." name="text" rows="4" required></textarea>#}
+        {#                <input type="submit" value="Отправить">#}
+        {#            </div>#}
+        {#        </form>#}
     </div>
 
 {% endblock %}

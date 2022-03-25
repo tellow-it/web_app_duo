@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Base</title>
+</head>
+<body>
+    {% block navigation %}
+    {% endblock %}
+    {% block header %}
+    {% endblock %}
+
+    {% block main %}
+    {% endblock %}
+
+    {% block aside-right %}
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+    </script>
+
+</body>
+</html>

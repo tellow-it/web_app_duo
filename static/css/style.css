@@ -55,9 +55,9 @@ body {
 }
 .decor {
    position: relative;
-   max-width: 400px;
+   max-width: 550px;
    margin: 50px auto 0;
-   background: white;
+   background: #c5afaf;
    border-radius: 30px;
 }
 .form-left-decoration, .form-right-decoration {
@@ -109,7 +109,7 @@ body {
    background: white;
 }
 .form-inner {
-   padding: 50px;
+   padding: 20px;
 }
 .form-inner input, .form-inner textarea {
    display: block;
@@ -137,5 +137,5 @@ body {
    font-family: 'Roboto', sans-serif;
    font-weight: 500;
    font-size: 24px;
-   color: #707981;
+   color: #3f3e3e;
 }

@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% block navigation %}
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="#">Contact</a>
+        <a href="{% url 'feedback' %}">Feedback</a>
+    </div>
+{% endblock %}
+
+
+{% block main %}
+    <div id="main">
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
+        <h2>Contact</h2>
+    </div>
+
+{% endblock %}

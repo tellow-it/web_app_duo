@@ -1,5 +1,5 @@
 import requests
-from django.views.generic import TemplateView, CreateView, ListView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView
 from django.conf import settings
 
 from main.forms import FeedBackForm
@@ -37,4 +37,10 @@ class PostList(ListView):
     template_name = "main/blog.html"
     model = Post
     context_object_name = "posts"
-    paginate_by = 5
+    paginate_by = 3
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+
+
+class PostDetail(DetailView):
+    model = Post
+    template_name = "main/post_detail.html"

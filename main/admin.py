@@ -4,9 +4,10 @@ from main.models import FeedBack, Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    Model = Post
-    list_display = ['id', 'name', 'description', 'information']
+    list_display = ('title', 'slug', 'status', 'created_on')
+    list_filter = ("status",)
+    search_fields = ['title', 'content']
+    prepopulated_fields = {'slug': ('title',)}
 
 
-admin.site.register(FeedBack)
 admin.site.register(Post, PostAdmin)

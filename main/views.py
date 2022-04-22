@@ -1,10 +1,9 @@
 import requests
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
 from django.conf import settings
 
-
 from main.forms import FeedBackForm
-from main.models import FeedBack
+from main.models import FeedBack, Post
 from main.telegram import telegram_bot_send_text
 
 
@@ -14,10 +13,6 @@ class IndexView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = "main/about.html"
-
-
-class BlogView(TemplateView):
-    template_name = "main/blog.html"
 
 
 class ContactView(TemplateView):
@@ -38,6 +33,8 @@ class FeedBackView(CreateView):
         return super().form_valid(form)
 
 
-
-
-
+class PostList(ListView):
+    template_name = "main/blog.html"
+    model = Post
+    context_object_name = "posts"
+    paginate_by = 5

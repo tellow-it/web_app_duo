@@ -139,3 +139,17 @@ body {
    font-size: 24px;
    color: #3f3e3e;
 }
+.main_center{
+    text-align: center;
+}
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+    font-size: 14px;
+    background: white;
+    max-width: 70%;
+    width: 70%;
+    border-collapse: collapse;
+    text-align: center;
+    margin: auto;
+
+}

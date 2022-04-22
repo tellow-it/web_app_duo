@@ -18,7 +18,22 @@
 {% block main %}
     <div id="main">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
-        <h2>Blog</h2>
+        <div class="main_center">
+            <h2>Blog</h2>
+            <table>
+        {% for post in posts %}
+
+            <tr>
+                <td><b>{{ post.id }}</b></td>
+                <td>{{ post.name }}</td>
+                <td>{{ post.description }}</td>
+                <td>{{ post.information }}</td>
+            </tr>
+        {% empty %}
+            <li>No ads yet.</li>
+        {% endfor %}
+    </table>
+        </div>
     </div>
 
 {% endblock %}

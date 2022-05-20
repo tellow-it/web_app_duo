@@ -1,9 +1,10 @@
 from django.contrib import admin
 
-from main.models import FeedBack, Post
+from main.models import Post
+from modeltranslation.admin import TranslationAdmin
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
     list_display = ('title', 'slug', 'status', 'created_on')
     list_filter = ("status",)
     search_fields = ['title', 'content']

@@ -1,5 +1,79 @@
 {% extends 'main/base.html' %}
-
-{% block header %}
-    <h2>Blog new</h2>
+{% block title %}
+    Blog
 {% endblock %}
+{% block navigation %}
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="#">Blog</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'feedback' %}">Feedback</a>
+    </div>
+{% endblock %}
+
+
+
+{% block main %}
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            background-color: #fdfdfd;
+        }
+
+        .head_text {
+            color: white;
+        }
+
+        .card {
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+    </style>
+
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
+        <div class="main_center">
+            <h2>Blog</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3 left">
+                {% for post in posts %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ post.title }}</h2>
+                            <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>
+                            <p class="card-text">{{ post.content|slice:":200" }}</p>
+                            <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% block sidebar %} {% include 'main/sidebar.html' %} {% endblock sidebar %}
+        </div>
+        <div class="center">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                {% endif %}
+                {% for i in paginator.page_range %}
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+

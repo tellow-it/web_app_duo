@@ -1,24 +1,45 @@
 {% extends 'main/base.html' %}
+{% load i18n %}
+{% block title %}
+    Home
+{% endblock %}
 {% block navigation %}
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <a href="#">Home</a>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'feedback' %}">Feedback</a>
+        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <label>
+                <select name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </label>
+            <input type="submit" value="Go">
+        </form>
     </div>
 {% endblock %}
 
-{% block header %}
-    <h2>Index new</h2>
-
-{% endblock %}
 
 {% block main %}
     <div id="main">
-        <h2>Sidenav Push Example</h2>
-        <p>Click on the element below to open the side navigation menu, and push this content to the right. Notice that
-            we add a black see-through background-color to body when the sidenav is opened.</p>
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
+        <div class="main_center">
+            <h2>Home</h2>
+        </div>
+
     </div>
+
 {% endblock %}

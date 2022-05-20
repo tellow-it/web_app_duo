@@ -1,3 +1,14 @@
 from django.contrib import admin
 
-# Register your models here.
+from main.models import Post
+from modeltranslation.admin import TranslationAdmin
+
+
+class PostAdmin(TranslationAdmin):
+    list_display = ('title', 'slug', 'status', 'created_on')
+    list_filter = ("status",)
+    search_fields = ['title', 'content']
+    prepopulated_fields = {'slug': ('title',)}
+
+
+admin.site.register(Post, PostAdmin)

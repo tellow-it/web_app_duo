@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'web_app_port.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+# docker db
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -85,7 +85,7 @@ DATABASES = {
         'PORT': '5432',
         }
 }
-
+# local db
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',

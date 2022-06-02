@@ -1,4 +1,5 @@
 {% extends 'main/base.html' %}
+{% load static %}
 {% load i18n %}
 {% block title %}
     About
@@ -11,6 +12,7 @@
         <a href="#">About</a>
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'feedback' %}">Feedback</a>
+        <a href="#">
         <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}">
             <label>
@@ -28,6 +30,7 @@
             </label>
             <input type="submit" value="Go">
         </form>
+        </a>
     </div>
 {% endblock %}
 
@@ -37,7 +40,18 @@
     <div id="main">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
         <div class="main_center">
-            <h2>About</h2>
+            <h1>About me</h1>
+        </div>
+        <div class=" w3-container" style="height:700px">
+            <div class="w3-padding-64 w3-center">
+                <img src="{% static 'img/image2.jpg' %}" class="w3-margin w3-circle" alt="Person" style="width:30%">
+                <div class="w3-center-align w3-padding-large">
+                    <p>Lorem ipusm sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non
+                        fringilla.</p>
+                    <p>Lorem ipusm sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non
+                        fringilla.</p>
+                </div>
+            </div>
         </div>
     </div>
 

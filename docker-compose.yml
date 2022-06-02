@@ -19,8 +19,8 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_NAME=d44eljfcg6arpk
+      - POSTGRES_USER=myqvlwhmtmoqyw
+      - POSTGRES_PASSWORD=3bff67a5e0ee77e54bab7f0311c3a8265db420517dee3427a5f681a42273d73b
     depends_on:
       - db

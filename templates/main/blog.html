@@ -11,6 +11,7 @@
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'feedback' %}">Feedback</a>
+        <a href="#">
         <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}">
             <label>
@@ -28,6 +29,7 @@
             </label>
             <input type="submit" value="Go">
         </form>
+        </a>
     </div>
 {% endblock %}
 

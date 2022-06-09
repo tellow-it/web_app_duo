@@ -13,24 +13,24 @@
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'feedback' %}">Feedback</a>
         <a href="#">
-        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-            <input name="next" type="hidden" value="{{ redirect_to }}">
-            <label>
-                <select name="language">
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
-                                selected{% endif %}>
-                            {{ language.name_local }} ({{ language.code }})
-                        </option>
-                    {% endfor %}
-                </select>
-            </label>
-            <br>
-            <input type="submit" value="Go">
-        </form>
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <label>
+                    <select name="language">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                    selected{% endif %}>
+                                {{ language.name_local }} ({{ language.code }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <br>
+                <input type="submit" value="Go">
+            </form>
         </a>
     </div>
 {% endblock %}
@@ -154,34 +154,97 @@
                             class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Experience
                     </h2>
                     <div class="w3-container">
-                        <h5 class="w3-opacity"><b>Ads site</b></h5>
+                        <h5 class="w3-opacity"><b>Список задач</b></h5>
                         <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>February 2022</h6>
-                        <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est
-                            reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure,
-                            iste.</p>
+                        <a href="https://github.com/tellow-it/ToDoList">github.com/tellow-it/ToDoList</a>
+                        <p>Сайт списка задач, можно создать, удалить, редактировать запись, выбрать категорию задачи.
+                            Список изображен в виде таблицы с пагинацией для удобного просмотра записей</p>
+
+                        <p><b>Стек технологий:</b></p>
+                        <p>Django, Python, SQlite3, CSS, Bootstrap4</p>
                         <hr>
+
                     </div>
                     <div class="w3-container">
-                        <h5 class="w3-opacity"><b>To Do List</b></h5>
+                        <h5 class="w3-opacity"><b>Отправка монет в сети блокчейн</b></h5>
                         <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2022
                         </h6>
-                        <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est
-                            reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure,
-                            iste.</p>
+                        <a href="https://github.com/tellow-it/send_coin">github.com/tellow-it/send_coin</a>
+                        <a href="https://sendcoinbcs.herokuapp.com/">sendcoinbcs.herokuapp.com</a>
+                        <p>Сайт отправки 1 монеты на адрес кошелька, полученного путем запроса с ноды, формирование
+                            транзакции, подписание транзакции и отправка в сеть. Интерфейс представляет собой таблицу, в
+                            которой указан адрес, время отправки и возможность детально посмотреть информацию о
+                            транзакции, кнопка отправки транзакции и пагинацию для удобного просмотра списка транзакций.
+                            Проект размещен на хостинге, можно посмотреть по ссылке выше</p>
+                        <p><b>Стек технологий:</b></p>
+                        <p>Django, Python, PyCoin, RPS, Bootstrap4, CSS</p>
                         <hr>
                     </div>
                     <div class="w3-container">
-                        <h5 class="w3-opacity"><b>Table project</b></h5>
+                        <h5 class="w3-opacity"><b>Сайт объявлений</b></h5>
                         <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2022
                         </h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                        <a href="https://github.com/tellow-it/ads_site">github.com/tellow-it/ads_site</a>
+                        <p>Сайт объявлений
+                            Реализованный функционал:
+                            Регистрация, аутентификация и авторизация пользователей, возможность зайти через социальный
+                            сети, создана классификация пользователей по уровню доступа(Забаненные - могут только
+                            просматривать, Продавец - может создавать объявления).
+                            Просмотр объявлений реализован в виде таблицы с фильтрацией по тегам и пагинацией для
+                            удобного просмотра. Для продавцов, аутентификация по номеру телефона, на номер телефона
+                            приходит смс с кодом для подтверждения личности(все реализовывалось формами встроенными в
+                            Django). Рассылка на почту пользователей информации о созданных за неделю объявлений(Redis,
+                            Celery). Работа над проектом проходила методологией Agile с CodeReview опытным
+                            разработчиком. В конце проект был обернут в Docker контейнер.</p>
+                        <p><b>Стек технологий:</b></p>
+                        <p>Django, Python, Docker, Redis, Celery, Git, Bootstrap4</p>
                         <hr>
                     </div>
                     <div class="w3-container">
-                        <h5 class="w3-opacity"><b>Sending coin in blockchain</b></h5>
+                        <h5 class="w3-opacity"><b>Портфолио</b></h5>
                         <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2022
                         </h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                        <a href="https://github.com/tellow-it/web_app_duo">github.com/tellow-it/web_app_duo</a>
+                        <a href="https://portfolio-web-me.herokuapp.com/">portfolio-web-me.herokuapp.com</a>
+                        <p>Сайт портфолио, со стартовой страницей с описанием навыков и образования. Блог с возможностью
+                            оценить пост лайком(реализовано с помощью AJAX) и перевести на ru/eu язык
+                            запись(ModelTranslationDjango).Страница обо мне. Далее страница с контактной информацией. В
+                            конце страница с обратной связью, информация из которой приходит в телеграмм бот, где
+                            написано имя человека, почта и сообщение от него.
+                            Проект реализован, так чтобы тот, кто захотел взять его как шаблон, мог заполнить его своей
+                            информацией без каких-либо проблем. Проект был реализован в команде.
+                            Приложение было разбито на микросервисы, контейнер для базы данных и отдельный для
+                            приложения, связь настроена с помощью docker-compose.</p>
+                        <p><b>Стек технологий:</b></p>
+                        <p>Django, Python, Docker, Heroku, PostgreSQL, Telegam API, CSS, Bootstrap4</p>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>API для сайта, определяющий Fake News</b></h5>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2022
+                        </h6>
+                        <a href="https://github.com/tellow-it/moscow_hack_fake">github.com/tellow-it/moscow_hack_fake</a>
+                        <p>API, который обладает двумя "ручками".
+                            1 - это GET запрос к бд, который возвращает список карточек в рандомном порядке для игры с
+                            угадыванием по новости правдива она или нет.
+                            2 - это POST запрос в бд, где обрабатываются данные из формы(новость, которую ввел
+                            пользователь), если введена корректно, то новость прогонятеся через ML модель, которая
+                            возвращает ответ и вероятность правильности, информация формируется в виде json структуры и
+                            отправляется как результат POST запроса.</p>
+                        <p><b>Стек технологий:</b></p>
+                        <p>Django Rest Framework, Python, PostgreSQL</p>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>API для сайта информации о студенте</b></h5>
+                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2022
+                        </h6>
+                        <a href="https://github.com/tellow-it/DRF">github.com/tellow-it/DRF</a>
+                        <p>Реализована работа с информацией о студенте(создание, редактирование, вывод всех студентов с
+                            пагинацией для удобного просмотра). Настройка доступа для разных пользователей. Регистрация
+                            пользователей через JWT токен.</p>
+                        <p><b>Стек технологий:</b></p>
+                        <p>Django Rest Framework, Python, JWT, Permissions</p>
                         <hr>
                     </div>
                 </div>

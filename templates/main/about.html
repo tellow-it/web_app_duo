@@ -13,23 +13,23 @@
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'feedback' %}">Feedback</a>
         <a href="#">
-        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-            <input name="next" type="hidden" value="{{ redirect_to }}">
-            <label>
-                <select name="language">
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
-                                selected{% endif %}>
-                            {{ language.name_local }} ({{ language.code }})
-                        </option>
-                    {% endfor %}
-                </select>
-            </label>
-            <input type="submit" value="Go">
-        </form>
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <label>
+                    <select name="language">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                    selected{% endif %}>
+                                {{ language.name_local }} ({{ language.code }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <input type="submit" value="Go">
+            </form>
         </a>
     </div>
 {% endblock %}
@@ -46,10 +46,11 @@
             <div class="w3-padding-64 w3-center">
                 <img src="{% static 'img/image2.jpg' %}" class="w3-margin w3-circle" alt="Person" style="width:30%">
                 <div class="w3-center-align w3-padding-large">
-                    <p>Lorem ipusm sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non
-                        fringilla.</p>
-                    <p>Lorem ipusm sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non
-                        fringilla.</p>
+                    <p>На данный момент учусь в МИЭТ на Software Engineer и
+                        развиваюсь в backend разработке на веб-фреймворке Django</p>
+                    <p>Занимаюсь командными видами спорта, легко нахожу себя в любой кампании и предпочитаю работу в
+                        команде.
+                        Участвую в хакатонах</p>
                 </div>
             </div>
         </div>
